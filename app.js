@@ -8,6 +8,15 @@ emitter.on('messageLogged', function(eventArg){
 // emitter raises an event
 emitter.emit('messageLogged', {id: 1, url: 'http://'});
 
+const fs = require('fs');
+const files = fs.readdirSync('./')
+console.log(files);
+// syncrhonous method
+fs.readdir('./', function(err,files) {
+  if (err) console.log('Error', err);
+  else console.log('Result', files);
+});
+
 // to load module
 // var logger = require('./logger');
 // console.log(logger);
