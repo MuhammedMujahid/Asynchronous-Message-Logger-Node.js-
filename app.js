@@ -1,14 +1,18 @@
 const EventEmitter = require('events'); // EventEmitter class with methods
-const emitter = new EventEmitter();
+// const emitter = new EventEmitter();
 // Listens to EventEmitter
-emitter.on('messageLogged', function(eventArg){
-  console.log('Listener Called', eventArg);
-});
 
 // emitter raises an event
-emitter.emit('messageLogged', {id: 1, url: 'http://'});
+// emitter.emit('messageLogged', {id: 1, url: 'http://'});
+const Logger = require('./Logger');
+const logger = new Logger();
+logger.on('messageLogged', function(eventArg){
+  console.log('Listener Called', eventArg);
+});
+logger.log('message');
 
 const fs = require('fs');
+//asynchronous
 const files = fs.readdirSync('./')
 console.log(files);
 // syncrhonous method
